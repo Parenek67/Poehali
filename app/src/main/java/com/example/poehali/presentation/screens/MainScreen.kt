@@ -5,13 +5,19 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.poehali.R
 import com.example.poehali.presentation.screens.bottomNav.BottomBarScreen
 import com.example.poehali.presentation.screens.bottomNav.BottomNavGraph
+import com.example.poehali.ui.theme.PoehaliTheme
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -34,7 +40,8 @@ fun BottomBar(navController: NavHostController){
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = navBackStackEntry?.destination
     
-    BottomNavigation() {
+    BottomNavigation(backgroundColor = colorResource(R.color.main),
+        contentColor = Color.White) {
         screens.forEach{
             AddItem(screen = it, currentScreen = currentScreen, navController = navController)
         }

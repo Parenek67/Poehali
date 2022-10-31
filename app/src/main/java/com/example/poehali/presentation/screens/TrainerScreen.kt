@@ -19,11 +19,3 @@ fun TrainerScreen(){
         Text(text = "Тренажер")
     }
 }
-
-@Preview(showSystemUi = true)
-@Composable
-fun DefaultPreview() {
-    PoehaliTheme {
-        TrainerScreen()
-    }
-}
